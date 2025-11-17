@@ -1,0 +1,7 @@
+data/raw/*
+data/processed/images/*
+*.jsonl
+*.json
+*.png
+data/processed/metadata_10k.csv
+.env
