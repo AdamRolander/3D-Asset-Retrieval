@@ -1,0 +1,6 @@
+numpy
+pandas
+faiss-cpu
+sentence-transformers
+tqdm
+pyarrow
