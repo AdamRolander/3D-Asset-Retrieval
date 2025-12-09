@@ -1,0 +1,4 @@
+Model,General R@10,Stability (Typos/Var),Discrimination (Negatives)
+Unsupervised Baseline,1.0,1.0,0.25
+Supervised Base,1.0,0.9230769230769231,1.0
+Supervised Augmented,1.0,1.0,0.5
