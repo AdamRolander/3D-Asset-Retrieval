@@ -1,0 +1,69 @@
+[
+  {
+    "name": "penguin",
+    "orig": "A stylized purple penguin with a yellow beak, black wings and feet with yellow tips, and a gradient orange-yellow belly.",
+    "variants": [
+      { "query": "purple pgnguin", "type": "typo" },
+      { "query": "stylized penguin with yellow beak", "type": "paraphrase" },
+      { "query": "a cute small cartoon penguin with with wings and black eyes", "type": "filler" },
+      { "query": "A purple bird with wings", "type": "synonym" },
+      { "query": "A bird with a yellow beak", "type": "synonym" },
+      { "query": "A bird with a yellow beak and wings", "type": "synonym" },    
+      { "query": "A 3D model of a purple pengin", "type": "filler" },
+      { "query": "A 3D generated model of a purple pengin", "type": "filler" },
+      { "query": "black winged yellow beaked penguin", "type": "reorder" },
+      { "query": "black and yellow penguin", "type": "color" },
+      { "query": "An image of a black and yellow penguin", "type": "color" },
+      { "query": "a purple penguin small toy", "type": "filler" },
+      { "query": "an orange penguin", "type": "descriptor" },
+      { "query": "a small green penguin", "type": "descriptor" },
+      { "query": "a purple duck with a yellow beak", "type": "subject" }
+    ]
+  },
+  {
+    "name": "sports car",
+    "orig": "A grey Audi R8 sports car.",
+    "orig_type": "canonical",
+    "variants": [
+      { "query": "Audi R8", "type": "smaller" },
+      { "query": "grey Audi R8", "type": "small" },
+      { "query": "Audi R8 sports car", "type": "paraphrase" },
+      { "query": "sports car", "type": "paraphrase only" },
+      { "query": "grey sports car", "type": "paraphrase color" },
+      { "query": "grey car", "type": "color only" },
+      { "query": "sports vehicle", "type": "synonym" },
+      { "query": "racing car", "type": "synonym" },
+      { "query": "grey var", "type": "typo" },
+      { "query": "an Audi driving down the road", "type": "filler" },
+      { "query": "a blue Audi R8 sports car", "type": "wrong color" },
+      { "query": "a red Ferrari sports car", "type": "wrong" },
+      { "query": "a parked grey coupe", "type": "similar" },
+      { "query": "a grey Ferrari sports car", "type": "subject change" }
+    ]
+  },
+  {
+  "name": "table",
+  "orig": "A wooden coffee table with a rectangular top, an open shelf, and four square legs. The natural wood finish gives it a warm and inviting look.",
+  "orig_type": "canonical",
+  "variants": [
+    { "query": "a wooden coffee table", "type": "small" },
+    { "query": "rectangular coffee table made of wood", "type": "reorder" },
+    { "query": "four leg wooden coffee table", "type": "reorder" },
+    { "query": "natural wood coffee table", "type": "one descriptor" },
+    { "query": "four square leg coffee table", "type": "leg desv" },
+    { "query": "open shelf wooden table", "type": "paraphrase_open_shelf" },
+    { "query": "inviting rectangular wooden tabletop", "type": "random" },
+    { "query": "natural walnut finish coffee table", "type": "material" },
+    { "query": "natural walnut finish coffee table four legs", "type": "material+" },
+    { "query": "a light wood finish coffee table with storage", "type": "material++" },
+    { "query": "a wooden coffee table in a living room", "type": "filler" },
+    { "query": "a wooden coffee table with four legs in a living room", "type": "specific + filler" },
+
+    { "query": "a wooden coffee table with round top", "type": "shape" },
+    { "query": "a wooden coffee table with square top", "type": "shape" },
+    { "query": "a wooden bench with four legs", "type": "wrong" },
+    { "query": "a wooden bench with four legs with natural finish", "type": "wrong specific" },
+    { "query": "a wooden cabinet with an open shelf", "type": "wrong" }
+  ]
+}
+]
