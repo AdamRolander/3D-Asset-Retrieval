@@ -7,3 +7,5 @@ data/processed/metadata_10k.csv
 *.pth
 train_split_fixed.csv
 final_metadata_augmented.csv
+<<<<<<< Updated upstream
+.venv
