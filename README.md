@@ -1,59 +1,11 @@
-Unsupervised Text Baseline – 3D Asset Retrieval
+# Bridging Language and 3D Assets
+### Comparing Embedding-Based and Contrastive Approaches for Text-to-3D Retrieval
 
-This code implements the unsupervised text-based baseline for the 3D asset retrieval project:
+Adam Rolander	| Pablo Calderon | Juan Fernández de Navarrete | Gayathri Kuniyil	| Arjun Kohli | Ethan Cota
 
-- We use a pretrained text encoder ( all-MiniLM-L6-v2 from `sentence-transformers`) to embed all captions.
-- We L2-normalize the embeddings so cosine similarity ≈ inner product.
-- We build a FAISS inner product index over the caption embeddings.
-- At query time, we embed the query text and retrieve the most similar assets by caption.
-- We evaluate using Recall@K (R@1, R@5, R@10) and MRR and simple robustness tests.
+### Abstract
+3D asset libraries have grown tremendously, making effective text-to-3D retrieval a valuable tool in 3D content creation. However, most asset retrieval systems struggle with the semantic variability of natural language queries. We address the question of whether an unsupervised embedding-based approach or a supervised contrastive approach yields better semantic alignment between text descriptions and corresponding 3D assets. We implement a baseline unsupervised retrieval pipeline using a pre-trained sentence encoder (MiniLM L6 V2) and compare its performance against a supervised multimodal model fine-tuned on text-image pairs using a contrastive learning objective. To evaluate the role of linguistic diversity, the supervised model was trained on both base (1 caption : 1 asset) and paraphrase-augmented datasets (11 captions : 1 asset, synthesized using Gemini-2.5-Flash). All models achieved perfect Recall@10 on original captions. However, evaluation under linguistic perturbations revealed key differences: the Supervised Base model suffered from reduced stability (R@10=0.923) and poor discrimination (Discrimination=1.00—maximum false positives), indicating severe overfitting. The Supervised Augmented model recovered perfect stability (R@10=1.00) and significantly improved discrimination (Discrimination=0.50), demonstrating the necessity of augmentation. Notably, the Unsupervised Baseline showed the highest discrimination power (Discrimination=0.25). Our findings conclude that unsupervised embedding-based retrieval is a robust baseline in low-data regimes, but supervised multimodal models, when trained with paraphrastic augmentation, achieve superior semantic grounding and stability necessary for practical text-to-3D search systems.
 
-This is meant to be the unsupervised baseline: pretrained text encoder + embedding similarity, no fine-tuning.
+**Code:** https://github.com/AdamRolander/3D-Asset-Retrieval 
 
----
-
-## File structure
-
-- `build_index.py`
-
-  - Loads metadata (`final_metadata_10k.csv`) and optional UID filter (`available_uids.txt`).
-  - Encodes captions with MiniLM into embeddings.
-  - L2-normalizes embeddings and saves them to `data/index/text_embeddings_norm.npy`.
-  - Builds a FAISS index and saves it to `data/index/text_index.faiss`.
-  - Saves metadata (`uid`, `caption`, `image_path`) to `data/index/text_index_metadata.csv`.
-  - Runs a small demo search to sanity check the index.
-
-- `eval_text_baseline.py`
-
-  - Loads the FAISS index, metadata, and the same MiniLM model.
-  - Exposes a `search(query, top_k)` helper for text retrieval.
-  - Evaluates the baseline by:
-    - Sampling random captions as queries.
-    - Computing R@1, R@5, R@10, and MRR.
-  - Runs simple robustness tests (synonyms, extra adjectives, word reordering).
-
-- `scripts/get_available_uids.py` (if present)
-  - Scans `data/raw/all_asset_zips/` for `.zip` files.
-  - Writes one UID per line into `data/available_uids.txt`.
-  - Used to filter the caption metadata to assets we actually have locally.
-
-You’ll also need the data files (already provided in the project):
-
-- `data/available_uids.txt`
-- `data/processed/final_metadata_10k.csv`
-
----
-
-## Environment setup
-
-From the repository root:
-
-```bash
-# 1. Create and activate a virtual environment (optional but recommended)
-python3 -m venv .venv
-source .venv/bin/activate   # On macOS / Linux
-# .venv\Scripts\activate    # On Windows PowerShell
-
-# 2. Install dependencies
-pip install -r requirements.txt
-```
+**Model Weights:** https://huggingface.co/Aerolandaz/text_to_3D_retrieval/tree/main 
